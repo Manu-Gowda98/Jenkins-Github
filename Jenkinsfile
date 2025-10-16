@@ -18,7 +18,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                // Simulate a build step (replace with real build commands)
                 sh 'echo "Compiling source code..."'
             }
         }
@@ -26,7 +25,6 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Simulate test step (replace with real test commands)
                 sh 'echo "All tests passed!"'
             }
         }
@@ -34,10 +32,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                // Simulate deployment (replace with real deployment commands)
+                // Fix: use double quotes for string interpolation
                 sh """
-                mkdir -p ${DEPLOY_DIR}
-                echo "Hello World App deployed at $(date)" > ${DEPLOY_DIR}/app.txt
+                mkdir -p "${DEPLOY_DIR}"
+                echo "Hello World App deployed at \$(date)" > "${DEPLOY_DIR}/app.txt"
                 """
             }
         }
